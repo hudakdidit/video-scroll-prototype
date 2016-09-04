@@ -1,0 +1,44 @@
+{
+  "name": "my-boilerplate",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm-run-all clean --parallel dev-js dev-jade",
+    "build": "npm-run-all clean --parallel prod-js prod-jade",
+    "clean": "rm  -f public/index.html",
+    "dev-js": "webpack-dev-server --watch --display-error-details webpack.config.js --content-base public",
+    "dev-jade": "pug -E html src/html/index.pug -P -w --out public -O '{\"ENV\": \"dev\"}'",
+    "prod-js": "webpack -p --config webpack.production.config.js",
+    "prod-jade": "pug -E html -P src/html/index.pug --out public -O '{\"ENV\": \"prod\"}'"
+  },
+  "author": "Jonathan Hudak hudak.jonathan@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "lodash.debounce": "^4.0.8"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "css-loader": "^0.23.1",
+    "eslint": "^3.4.0",
+    "eslint-config-airbnb": "^10.0.1",
+    "eslint-plugin-import": "^1.14.0",
+    "eslint-plugin-jsx-a11y": "^2.2.1",
+    "eslint-plugin-react": "^6.2.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "npm-run-all": "^3.0.0",
+    "postcss-loader": "^0.8.2",
+    "poststylus": "^0.2.3",
+    "pug": "^2.0.0-beta4",
+    "style-loader": "^0.13.1",
+    "stylus": "^0.54.2",
+    "stylus-loader": "^2.0.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1",
+    "withinviewport": "^1.0.0"
+  }
+}
